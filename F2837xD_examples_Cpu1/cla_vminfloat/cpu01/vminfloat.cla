@@ -1,0 +1,103 @@
+//#############################################################################
+// \file vminfloat.cla
+//
+// \brief  Vector Minimum
+// \author Tri Thai
+// \date   August 2, 2013
+//
+//
+//  Group:             C2000
+//  Target Family:    F2837xD
+//
+//#############################################################################
+// $TI Release: F2837xD Support Library v210 $
+// $Release Date: Tue Nov  1 14:46:15 CDT 2016 $
+// $Copyright: Copyright (C) 2013-2016 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//#############################################################################
+
+//
+// Included Files
+//
+#include "cla_vminfloat_shared.h"
+
+//
+// Defines
+//
+
+//
+// Globals
+//
+
+//
+// Function Definitions
+//
+//Task 1 : Vector min
+__interrupt void Cla1Task1 ( void )
+{
+    min1 = vector1[4];
+    index1 = 4;
+
+    for(i = 3; i >= 0; i--)
+    {
+        if(vector1[i] < min1)
+        {
+           index1 = i;
+           min1 = vector1[i];
+        }
+    }
+}
+
+//Task 2 : Vector min
+__interrupt void Cla1Task2 ( void )
+{
+    min2 = vector2[0];
+    index2 = 0;
+
+    for(i = 1; i < length2; i++)
+    {
+        if(vector2[i] < min2)
+        {
+           index2 = i;
+           min2 = vector2[i];
+        }
+    }
+}
+
+//Task 3 : Vector min
+__interrupt void Cla1Task3 ( void )
+{
+    index3 = 0;
+    min3 = vector3[0];
+
+    for(i = 1; i < length3; i++)
+    {
+        index3 = (vector3[i] < min3) ? i : index3;
+        min3   = (vector3[i] < min3) ? vector3[i] : min3;
+    }
+}
+
+__interrupt void Cla1Task4 ( void )
+{
+
+}
+__interrupt void Cla1Task5 ( void )
+{
+
+}
+__interrupt void Cla1Task6 ( void )
+{
+
+}
+__interrupt void Cla1Task7 ( void )
+{
+
+}
+__interrupt void Cla1Task8 ( void )
+{
+
+}
+
+//
+// End of file
+//

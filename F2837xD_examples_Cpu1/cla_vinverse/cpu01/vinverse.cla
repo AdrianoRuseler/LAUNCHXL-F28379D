@@ -1,0 +1,100 @@
+//#############################################################################
+// \file \cs30_f2837x\F2837xD_examples_Cpu1\cla_vinverse\cpu01\vinverse.cla
+//
+// \brief  Vector Inverse
+// \author Tri Thai
+// \date   August 2, 2013
+//
+//
+//  Group:             C2000
+//  Target Family:    F2837xD
+//
+//#############################################################################
+// $TI Release: F2837xD Support Library v210 $
+// $Release Date: Tue Nov  1 14:46:15 CDT 2016 $
+// $Copyright: Copyright (C) 2013-2016 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//#############################################################################
+
+//
+// Included Files
+//
+#include "cla_vinverse_shared.h"
+
+//
+// Defines
+//
+
+//
+// Globals
+//
+
+//
+// Function Definitions
+//
+//Task 1 : divide each element into 1
+__interrupt void Cla1Task1 ( void )
+{
+    int32 index;
+
+    //
+    // Copy the vector to cla to cpu message RAM
+    //
+    for(index=0; index < LENGTH1; index++)
+    {
+     vector1_inverse[index] = vector1[index];
+    }
+
+    for(index = LENGTH1 - 1; index >= 0 ; index--)
+    {
+      vector1_inverse[index] = 1.0/vector1[index];
+    }
+}
+
+//
+// Task 2 : Same as Task 1 except the input vector is the output vector
+//          (data RAM instead of message RAM)
+//
+__interrupt void Cla1Task2 ( void )
+{
+   int32 index;
+
+   for(index = LENGTH2 - 1; index >= 0 ; index--)
+   {
+       vector2[index] = 1.0/vector2[index];
+   }
+}
+
+__interrupt void Cla1Task3 ( void )
+{
+
+}
+
+__interrupt void Cla1Task4 ( void )
+{
+
+}
+
+__interrupt void Cla1Task5 ( void )
+{
+
+}
+
+__interrupt void Cla1Task6 ( void )
+{
+
+}
+
+__interrupt void Cla1Task7 ( void )
+{
+
+}
+
+__interrupt void Cla1Task8 ( void )
+{
+
+}
+
+//
+// End of file
+//

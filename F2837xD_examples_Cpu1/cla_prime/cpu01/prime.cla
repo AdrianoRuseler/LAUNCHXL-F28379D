@@ -1,0 +1,126 @@
+//#############################################################################
+// \file prime.cla
+//
+// \brief  Primes Test
+// \author Tri Thai
+// \date   August 2, 2013
+//
+//
+//  Group:             C2000
+//  Target Family:    F2837xD
+//
+//#############################################################################
+// $TI Release: F2837xD Support Library v210 $
+// $Release Date: Tue Nov  1 14:46:15 CDT 2016 $
+// $Copyright: Copyright (C) 2013-2016 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//#############################################################################
+
+//
+// Included Files
+//
+#include "cla_prime_shared.h"
+
+//
+// Defines
+//
+
+//
+// Globals
+//
+
+//
+// Function Definitions
+//
+
+int32_t chkdiv(int32_t, int32_t);
+
+__interrupt void Cla1Task1 ( void )
+{
+   __mdebugstop();
+   int32_t i, j, index;
+   index = 0;
+
+//
+// Obviously 1 and 2 are prime, but for this test
+// let the program determine that
+//
+   for ( i = 1; i <= 2; i++ )
+   {
+      for ( j = 2; j <= i/2; j++ )
+      {
+         if (chkdiv(i,j) == 0 ) break;
+      }
+      if ( j > i / 2 )
+      {
+          out[index] = i;
+          index++;
+      }
+   }
+//
+// For the rest of the numbers, skip evens
+//
+   for ( i = 3; index < LENGTH; i+=2 )
+   {
+      for ( j = 2; j <= i/2; j++ )
+      {
+         if (chkdiv(i,j) == 0 ) break;
+      }
+      if ( j > i / 2 )
+      {
+          out[index] = i;
+          index++;
+      }
+   }
+}
+
+__interrupt void Cla1Task2 ( void )
+{
+
+}
+
+__interrupt void Cla1Task3 ( void )
+{
+
+}
+
+__interrupt void Cla1Task4 ( void )
+{
+
+}
+
+__interrupt void Cla1Task5 ( void )
+{
+
+}
+
+__interrupt void Cla1Task6 ( void )
+{
+
+}
+
+__interrupt void Cla1Task7 ( void )
+{
+
+}
+
+__interrupt void Cla1Task8 ( void )
+{
+
+}
+
+int32_t chkdiv(int32_t x, int32_t y)
+{
+    x = abs(x);
+    y = abs(y);
+    do
+    {
+        x -= y;
+    }
+    while (x > 0);
+    return x;
+}
+
+//
+// End of file
+//

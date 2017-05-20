@@ -1,0 +1,19 @@
+//###########################################################################
+//
+// This .gel file can be used to help demonstrate the example project.
+//
+//###########################################################################
+// $TI Release: Sonata Header Files and Peripheral Examples 
+// $Release Date: Tue Nov  1 14:46:15 CDT 2016 $
+// $Copyright: Copyright (C) 2013-2016 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//###########################################################################
+ 
+
+menuitem "HRPWM FineDutySlider"
+slider FineDutySlider(1, 255, 1, 1, finedutyvalue)
+{
+
+ DutyFine = finedutyvalue;
+}
+

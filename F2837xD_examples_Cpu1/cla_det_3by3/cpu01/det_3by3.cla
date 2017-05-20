@@ -1,0 +1,82 @@
+//#############################################################################
+// \file \cs30_f2837x\F2837xD_examples_Cpu1\cla_det_3by3\cpu01\cla_det_3by3.cla
+//
+// \brief  Deteminant of 3X3 Matrix Example
+// \author Tri Thai
+// \date   August 1, 2013
+//
+//
+//  Group:             C2000
+//  Target Family:    F2837xD
+//
+//#############################################################################
+// $TI Release: F2837xD Support Library v210 $
+// $Release Date: Tue Nov  1 14:46:15 CDT 2016 $
+// $Copyright: Copyright (C) 2013-2016 Texas Instruments Incorporated -
+//             http://www.ti.com/ ALL RIGHTS RESERVED $
+//#############################################################################
+
+//
+// Included Files
+//
+#include "cla_det_3by3_shared.h"
+
+//
+// Defines
+//
+
+//
+// Globals
+//
+
+//
+// Function Definitions
+//
+//Task 1 : Matrix determinant
+__interrupt void Cla1Task1 ( void )
+{
+    //Local Variables
+
+    __mdebugstop();
+    fDet = x[0][0]*(x[1][1]*x[2][2] - x[2][1]*x[1][2]) \
+       -x[0][1]*(x[1][0]*x[2][2] - x[2][0]*x[1][2]) \
+       +x[0][2]*(x[1][0]*x[2][1] - x[2][0]*x[1][1]);
+}
+
+__interrupt void Cla1Task2 ( void )
+{
+
+}
+
+__interrupt void Cla1Task3 ( void )
+{
+
+}
+
+__interrupt void Cla1Task4 ( void )
+{
+
+}
+
+__interrupt void Cla1Task5 ( void )
+{
+
+}
+
+__interrupt void Cla1Task6 ( void )
+{
+
+}
+
+__interrupt void Cla1Task7 ( void )
+{
+
+}
+
+__interrupt void Cla1Task8 ( void )
+{
+
+}
+//
+// End of file
+//
